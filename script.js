@@ -1,0 +1,10 @@
+const header       = document.createElement('div')
+const headerButton = document.createElement('button')
+const container    = document.createElement('div')
+const stats        = document.createElement('div')
+const turns        = document.createElement('div')
+const time         = document.createElement('div')
+const field        = document.createElement('div')
+const gem          = document.createElement('button')
+const info         = document.createElement('div')
+
