@@ -1,6 +1,7 @@
 .container {
     width: 50%;
-    margin: 5% auto 0;
+    max-width: 700px;
+    margin: 1% auto 0;
     border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
@@ -53,12 +54,14 @@
     height: auto;
     justify-content: center;
     align-items: center;
-    background: yellow;
+    background: rgb(55, 173, 75);
+    color: #fff;
     outline: none;
     cursor: pointer;
 }
 .void {
     background: blanchedalmond;
+    border: none;
 }
 .stop {
     background-color: black;
@@ -91,6 +94,7 @@
 }
 @media (max-width: 375px) {
     .container {
+        margin: 10% auto 0;
         width: 90%;
     }
     .but {
