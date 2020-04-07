@@ -2,11 +2,7 @@
     width: 50%;
     max-width: 700px;
     margin: 1% auto 0;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-    border-bottom-left-radius: 5vw;
-    border-bottom-right-radius: 5vw;
+    font-family: 'Roboto', sans-serif;
 }
 .header {
     width: 100%;
@@ -14,12 +10,14 @@
     text-align: center;
 }
 .but {
-    background: cadetblue;
+    background: #22c1c3;
+    box-shadow: 1px 1px 1px 1px black;
     outline: none;
     user-select: none;
     border: none;
     display: inline-block;
     padding: 1%;
+    margin: 1%;
     border-radius: 3%;
     cursor: pointer;
     color: white;
@@ -28,24 +26,43 @@
 }
 .but:active {
     opacity: 0.5;
+    transform: translateX(1px) translateY(1px);
+    box-shadow: none;
+}
+.shuffled {
+    background-color: blueviolet;
 }
 .stats {
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;
 }
 .turns {
     margin-right: 5px;
 }
 .field {
-    width: 100%;
+    margin: 0 auto;
+    width: max-content;
     display: grid;
-    padding: 1%;;
-    grid-template: repeat(4, 8vw) / repeat(4, 8vw);
+    grid-template: repeat(4, 6vw) / repeat(4, 6vw);
     align-content: center;
     justify-content: center;
     margin-bottom: 5%;
     transition: .3s ease-in-out;
+}
+.three {
+    grid-template: repeat(3, 6vw) / repeat(3, 6vw);
+}
+.five {
+    grid-template: repeat(5, 5vw) / repeat(5, 5vw);
+}
+.six {
+    grid-template: repeat(6, 4vw) / repeat(6, 4vw);
+}
+.seven {
+    grid-template: repeat(7, 4vw) / repeat(7, 4vw);
+}
+.eight {
+    grid-template: repeat(8, 3vw) / repeat(8, 3vw);
 }
 .gem {
     width: 100%;
@@ -54,30 +71,97 @@
     height: auto;
     justify-content: center;
     align-items: center;
-    background: rgb(55, 173, 75);
+    background: rgb(153,131,249);
+    background: linear-gradient(90deg, rgba(153,131,249,1) 24%, rgba(0,255,218,1) 94%);
     color: #fff;
     outline: none;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.turn_right {
+    animation-name: turnRight;
+    animation-duration: .3s;
+}
+.turn_left {
+    animation-name: turnLeft;
+    animation-duration: .3s;
+}
+.turn_top {
+    animation-name: turnTop;
+    animation-duration: .3s;
+}
+.turn_bottom {
+    animation-name: turnBottom;
+    animation-duration: .3s;
+}
+@keyframes turnRight {
+    100%{transform: translateX(100%);}
+}
+@keyframes turnLeft {
+    100%{transform: translateX(-100%);}
+}
+@keyframes turnTop {
+    100%{transform: translateY(-100%);}
+}
+@keyframes turnBottom {
+    100%{transform: translateY(100%);}
 }
 .void {
-    background: blanchedalmond;
+    background: rgb(34,193,195);
+    background: linear-gradient(304deg, rgba(34,193,195,1) 0%, rgba(255,254,253,1) 51%, rgba(255,254,253,1) 100%);
     border: none;
+    z-index: 1;
 }
 .stop {
     background-color: black;
+}
+.stopped {
+    background-color: burlywood;
 }
 .info {
     width: 100%;
     text-align: center;
     margin-bottom: 10%;
 }
-.info a {
-    margin-right: 5px;
+.info__select {
+    list-style: none;
 }
-
+.info__select li{
+    display: inline-block;
+    margin: 0 2px;
+}
 .active {
     text-decoration: none;
 }
+.popup {
+    display: block;
+    position: absolute;
+    height: 50vw;
+    width: 50vw;
+    top: calc(50% - 25vw);
+    left: calc(50% - 25vw);
+    background: #fff;
+    z-index: 3;
+    border: 1px solid black;
+    text-align: center;
+}
+.popup li {
+    list-style: none;
+    line-height: 1.5;
+}
+.hidden {
+    display: none;
+}
+.close {
+    position: relative;
+    top: 5%;
+    left: 90%;
+    height: 3vw;
+    width: 3vw;
+    cursor: pointer;
+}
+
 @media (max-width: 500px) {
     .container {
         width: 90%;
@@ -91,6 +175,21 @@
     .field {
         grid-template: repeat(4, 18vw) / repeat(4, 18vw);
     }
+    .three {
+        grid-template: repeat(3, 18vw) / repeat(3, 18vw);
+    }
+    .five {
+        grid-template: repeat(5, 13vw) / repeat(5, 13vw);
+    }
+    .six {
+        grid-template: repeat(6, 12vw) / repeat(6, 12vw);
+    }
+    .seven {
+        grid-template: repeat(7, 11vw) / repeat(7, 11vw);
+    }
+    .eight {
+        grid-template: repeat(8, 10vw) / repeat(8, 10vw);
+    }
 }
 @media (max-width: 375px) {
     .container {
@@ -102,5 +201,23 @@
     }
     .field {
         grid-template: repeat(4, 18vw) / repeat(4, 18vw);
+    }
+    .field {
+        grid-template: repeat(4, 18vw) / repeat(4, 18vw);
+    }
+    .three {
+        grid-template: repeat(3, 18vw) / repeat(3, 18vw);
+    }
+    .five {
+        grid-template: repeat(5, 13vw) / repeat(5, 13vw);
+    }
+    .six {
+        grid-template: repeat(6, 12vw) / repeat(6, 12vw);
+    }
+    .seven {
+        grid-template: repeat(7, 11vw) / repeat(7, 11vw);
+    }
+    .eight {
+        grid-template: repeat(8, 10vw) / repeat(8, 10vw);
     }
 }
