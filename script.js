@@ -325,7 +325,6 @@ function stopTimer(e) {
     let target = e.target
     if(!target.classList.contains('stop')) return
     if(target.classList.contains('stopped')) {
-        continueTimer(e)
         target.classList.remove('stopped')
         return
     }
